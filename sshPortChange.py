@@ -1,5 +1,5 @@
 """
-This script changes the port ssh runs on. The script restarts ssh so the port change takes in effect, and imports time to run every second.
+This script changes the port ssh runs on. The script rewrites the sshd_config file to change the port, then restarts ssh.
 """
 
 import random
@@ -22,7 +22,6 @@ while True:
   with open('/etc/ssh/sshd_config', 'w') as file:
     file.writelines(data)
     
-  
   # restart ssh
   os.system('systemctl restart ssh.service')
 
