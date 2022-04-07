@@ -1,2 +1,2 @@
 # KOTH-scripts
-scripts used for KOTH (that are allowed)
+scripts used for KOTH (some allowed, some not)
