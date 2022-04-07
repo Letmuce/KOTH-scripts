@@ -1,5 +1,6 @@
 """
-This script changes the port ssh runs on. The script rewrites the sshd_config file to change the port, then restarts ssh.
+This script changes the port ssh runs on, rewrites the sshd_config file to change the port, then restarts ssh
+change sleep() time at the end to delay how often port changes
 """
 
 import random
