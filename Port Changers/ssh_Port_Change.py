@@ -18,10 +18,12 @@ while True:
   for num, line in enumerate(data, 1):
     if text in line:
       data[num - 1] = 'Port {}\n'.format(str(random.randrange(5000,65000,1)))
+  data.close()
   
   # write to file
   with open('/etc/ssh/sshd_config', 'w') as file:
     file.writelines(data)
+    file.close()
     
   # restart ssh
   os.system('systemctl restart ssh.service')
