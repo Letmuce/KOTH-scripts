@@ -13,10 +13,12 @@ while True:
   
   # replace port
   data[4] = 'Listen {}'.format(str(random.randrange(5000,65000,1)))
+  data.close()
   
   # write to file
   with open('/etc/apache2/ports.conf', 'w') as file:
     file.writelines(data)
+    file.close()
   
   
   # restart Apache
