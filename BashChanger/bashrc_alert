@@ -1,0 +1,7 @@
+#!/bin/bash
+
+IFS=$'\n' users_list=($(awk -F: '$7 == "/bin/bash" {print $1}' /etc/passwd))
+
+for str in ${users_list[@]}; do
+  echo "wall 'user $str has logged in'" >> /home/$str/.bashrc
+done
