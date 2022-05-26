@@ -1,4 +1,5 @@
 #!/bin/bash
+# this script walls if a user logs in so you can then run pkill -u or something
 
 IFS=$'\n' users_list=($(awk -F: '$7 == "/bin/bash" {print $1}' /etc/passwd))
 
