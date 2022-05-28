@@ -1,8 +1,13 @@
 #!/bin/bash
-# this script walls if a user logs in so you can then run pkill -u or something
+# this script adds a wall command to everyone's .bashrc
 
 IFS=$'\n' users_list=($(awk -F: '$7 == "/bin/bash" {print $1}' /etc/passwd))
 
 for str in ${users_list[@]}; do
-  echo "wall 'user $str has logged in'" >> /home/$str/.bashrc
+   if [ "$str" != "root" ];then
+      echo "wall 'user $str has logged in'" >> /home/$str/.bashrc
+   fi
 done
+
+# and for root
+echo "wall 'user root has logged in'" >> /root/.bashrc
